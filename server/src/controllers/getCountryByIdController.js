@@ -11,9 +11,6 @@ const getContryById = async (id) => {
   if (COUNTRY){
     return COUNTRY;
   }
-  else{
-    
-  }
 };
 
 module.exports = {
