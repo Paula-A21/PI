@@ -6,18 +6,23 @@ const getCountries = async () => {
   const data = response.data;
 
   //mapeo cada data que llega en el response del axios.get 
-  const formatedCountries = data.map((country) => ({ 
-    id: country.country_code,
-    name: country.name.official,
-    flags: country.flags.png,
-    continents: country.continents,
-    capital: country.capital,
-    subregion: country?.subregion,
-    area: country?.area,
-    population: country.population,
-  }));
+ if(data.name){
 
-  return formatedCountries;
+   const formatedCountries = data.map((country) => ({ 
+     id: country.cca3,
+     name: country.name.official,
+     flags: country.flags.png,
+     continents: country.continents[0],
+     capital: country.capital[0],
+     subregion: country?.subregion,
+     area: country?.area,
+     population: country.population,
+   }));
+ 
+   return formatedCountries;
+ }
+ else throw new Error ("There was an error searching for the countries");
+
 };    
    
 module.exports = {
