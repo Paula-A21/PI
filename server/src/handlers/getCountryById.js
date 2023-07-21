@@ -1,10 +1,10 @@
-const {getContryById} = require("../controllers/getCountryByIdController");
+const {getContryById} = require("../controllers/countryById");
 
 const getContryId = async (req, res) => {
-    const {idPais} = req.params;
+    const {id} = req.params;
 
     try {
-        const countryID = await getContryById(idPais);
+        const countryID = await getContryById(id);
         res.status(200).json(countryID);
     } catch (error) {
         res.status(404).json({error: error.message});

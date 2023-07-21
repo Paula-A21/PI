@@ -1,4 +1,4 @@
-const { getContryByName } = require("../controllers/getCountryByNameController");
+const { getContryByName } = require("../controllers/countryByName");
 
 const getContryName = async (req, res) => {
     const {name} = req.params;

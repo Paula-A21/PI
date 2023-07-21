@@ -4,6 +4,7 @@ const router = Router();
 const { routerCountry } = require("./routerCountry");
 const { routerCountryId } = require("./routerCountryId");
 const { routerCountryName } = require("./routerCountryName");
+const { routerPostActivity } = require("./routerActivities");
 
 
 
@@ -15,8 +16,8 @@ router.use("/countries/:idPais", routerCountryId);
 
 router.use("/countries/name?=", routerCountryName);
 
-// router.post("/activities", postActivities);
+router.use("/activities", routerPostActivity);
 
-// router.get("/activities", getActivities);
+// router.use("/activities", getActivities);
 
 module.exports = router;

@@ -4,9 +4,8 @@ const { DataTypes } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   sequelize.define('Country', {
-    id:{
-      type: DataTypes.STRING, //country_code en la API
-      len:3,
+    id:{ //es el id de 3 letras particular de cada país, cca3 así me llega de la API
+      type: DataTypes.STRING, 
       primaryKey:true
     },
     name: {
@@ -14,7 +13,7 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     flags: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING, //tipo de imagen?
       allowNull:false
     },
     continents:{
