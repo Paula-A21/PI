@@ -1,4 +1,4 @@
-const {Country} =  require('../db');
+const {Country} =  require('../db.js');
 
 const getContryById = async (idPais) => {
   const COUNTRY = await Country.findByPk(idPais);

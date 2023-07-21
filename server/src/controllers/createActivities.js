@@ -1,4 +1,4 @@
-const {Activity} = require("../db");
+const {Activity} = require("../db.js");
 
 const createActivity = async (name, difficulty, duration, season) => {
     if(name){

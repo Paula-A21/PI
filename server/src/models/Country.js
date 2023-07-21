@@ -16,23 +16,46 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING, //tipo de imagen?
       allowNull:false
     },
-    continents:{
+    continents: {
       type: DataTypes.STRING,
-      allowNull:false,
+      allowNull: false,
+      get() {
+        const continentsString = this.getDataValue("continents");
+        if (continentsString) {
+          return JSON.parse(continentsString); // Convertir la cadena de texto a un arreglo
+        } else {
+          return [];
+        }
+      },
+      set(value) {
+        this.setDataValue("continents", JSON.stringify(value)); // Convertir el arreglo a una cadena de texto antes de guardar
+      },
     },
-    capital:{
+    capital: {
       type: DataTypes.STRING,
-      allowNull:false,
+      defaultValue: "Unknown",
+      get() {
+        const capitalString = this.getDataValue("capital");
+        if (capitalString) {
+          return JSON.parse(capitalString); // Convertir la cadena de texto a un objeto JSON
+        } else {
+          return {};
+        }
+      },
+      set(value) {
+        this.setDataValue("capital", JSON.stringify(value)); // Convertir el objeto JSON a una cadena de texto antes de guardar
+      }
     },
     subregion:{
       type: DataTypes.STRING,
+      allowNull:true
     },
     area:{
       type: DataTypes.INTEGER,
+      allowNull:true
     },
     population:{
       type: DataTypes.INTEGER,
       allowNull:false
     }
-  });
-};
+  })};

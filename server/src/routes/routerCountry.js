@@ -1,5 +1,4 @@
-const { getAllCountries } = require('../handlers/getCountries');
-
+const { getAllCountries } = require('../handlers/getAllCountries');
 const routerCountry = require('express').Router();
 
 routerCountry.get('/', getAllCountries);

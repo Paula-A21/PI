@@ -1,4 +1,4 @@
-const {Country} =  require('../db');
+const {Country} =  require('../db.js');
 
 const getContryByName = async (name) => {
     name.toLowerCase();  //paso el nombre a minúsculas para que no haya conflicto si hay una minúscula mal

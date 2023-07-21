@@ -23,7 +23,8 @@ module.exports = (sequelize) => {
         duration:{
             //postgres quizás no acepta TIME, así que debería probar usar DATE y sacar solo la hora
             //type: DataTypes.DATE
-            type: DataTypes.TIME
+            type: DataTypes.TIME,
+            allowNull: true
             // type: DataTypes.INTEGER,
             // validate:{
             //     "max":24,
