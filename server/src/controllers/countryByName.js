@@ -1,15 +1,17 @@
 const {Country} =  require('../db.js');
+const { Op } = require("sequelize");
 
 const contryByName = async (name) => {
-      
-    const COUNTRY = await Country.findAll({
-        where: {
-          [Op.iLike]: name //con esto me aseguro que no haya conflicto de mayus y minus
-        }
-      });
+  console.log("swas"+name);
+  const COUNTRY = await Country.findOne({
+    where: {
+      // [Op.iLike]: name
+      name
+    }
+  });
     
     if (!COUNTRY){
-        throw new Error ("Country name not found");
+      throw new Error ("Country name not found");
     }
     return COUNTRY;
 }
