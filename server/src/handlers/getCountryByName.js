@@ -1,10 +1,11 @@
-const { getContryByName } = require("../controllers/countryByName");
+const { contryByName } = require("../controllers/countryByName");
 
-const getContryName = async (req, res) => {
-    const {name} = req.params;
-
+const getContryByName = async (req, res) => {
+    
     try {
-        const countryName = await getContryByName(name);
+        const {name} = req.query;
+        console.log(name);
+        const countryName = await contryByName(name);
         res.status(200).json(countryName);
     } catch (error) {
         res.status(404).json({error: error.message});
@@ -12,5 +13,5 @@ const getContryName = async (req, res) => {
 }
 
 module.exports = {
-    getContryName
+    getContryByName
 }

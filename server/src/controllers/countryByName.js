@@ -1,15 +1,19 @@
 const {Country} =  require('../db.js');
 
-const getContryByName = async (name) => {
-    name.toLowerCase();  //paso el nombre a minúsculas para que no haya conflicto si hay una minúscula mal
-    const COUNTRY = await Country.findAll(name);
+const contryByName = async (name) => {
+      
+    const COUNTRY = await Country.findAll({
+        where: {
+          [Op.iLike]: name //con esto me aseguro que no haya conflicto de mayus y minus
+        }
+      });
     
-    if (COUNTRY){
-        return COUNTRY;
+    if (!COUNTRY){
+        throw new Error ("Country name not found");
     }
-    else throw new Error ("Country name not found");
+    return COUNTRY;
 }
 
 module.exports = {
-    getContryByName
+    contryByName
 }

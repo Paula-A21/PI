@@ -1,8 +1,9 @@
-const { getContryId } = require("../handlers/getCountryById");
+const { getCountriesById } = require("../handlers/getCountriesById");
 
-const routerCountryId = require('express').Router();
+const { Router } = require("express");
+const routerCountryId = Router();
 
-routerCountryId.get('/', getContryId);
+routerCountryId.get('/:id', getCountriesById);
 
 module.exports = {
     routerCountryId

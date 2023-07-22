@@ -8,12 +8,15 @@
       return Promise.all(
         data.map((country) => {
           // Mapeo cada data que llega en el response del axios.get
+
+          if(!country.capital) country.capital = ['Unknown'] //si no existe la capital se guarda un valor unknown por defecto
+
           return Country.create({
             id: country.cca3,
-            name: country.name.official,
+            name: country.name.common,
             flags: country.flags.png,
-            continents: country.continents,
-            capital: country.capital !== null ? country.capital : 'Unknown', //si no existe la capital mando un valor unknown
+            continents: country.continents[0], //saco el primer valor de los arrays
+            capital: country.capital[0], 
             subregion: country?.subregion,
             area: country?.area,
             population: country.population,

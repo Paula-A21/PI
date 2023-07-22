@@ -6,18 +6,17 @@ const { routerCountryId } = require("./routerCountryId");
 const { routerCountryName } = require("./routerCountryName");
 const { routerPostActivity } = require("./routerActivities");
 
+const countriesRoutes = "/countries"; //creo una constante con el string countries para usarlo en las rutas
 
-
-router.use("/countries", routerCountry); //le paso cada una de las funciones, 
+router.use(countriesRoutes, routerCountry); //le paso cada una de las funciones, 
 //y de manera predeterminada se les envia a cada uno las req y res, 
 //tengo una ruta para cada handler específicamente
 
-router.use("/countries/:idPais", routerCountryId);
+router.use(countriesRoutes, routerCountryId);
 
-router.use("/countries/name?=", routerCountryName);
+router.use(countriesRoutes, routerCountryName);
 
 router.use("/activities", routerPostActivity);
 
-// router.use("/activities", getActivities);
 
 module.exports = router;
