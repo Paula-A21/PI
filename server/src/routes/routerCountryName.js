@@ -1,10 +1,10 @@
-const { getContryByName } = require("../handlers/getCountryByName")
-const { Router } = require("express");
-const routerCountryName = Router();
+// const { getContryByName } = require("../handlers/getCountryByName")
+// const { Router } = require("express");
+// const routerCountryName = Router();
 
 
-routerCountryName.get("/name", getContryByName);
+// routerCountryName.get("/name", getContryByName);
 
-module.exports = {
-    routerCountryName
-}
+// module.exports = {
+//     routerCountryName
+// }
