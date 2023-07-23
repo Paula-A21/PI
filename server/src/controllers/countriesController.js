@@ -34,5 +34,5 @@ const countryByName = async (name) => {
 
 module.exports = {
     countryById,
-    countryByName,
+    countryByName
 };
