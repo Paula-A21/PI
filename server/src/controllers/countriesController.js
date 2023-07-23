@@ -7,7 +7,10 @@ const countryById = async (id) => {
         where: { id },
         include: {
             model: Activity,
-            attributes: ['name', 'season', 'difficulty', 'season']
+            attributes: ['name', 'season', 'difficulty', 'season'],
+            through:{
+                attributes: []
+            }
         }
     });
 
@@ -23,7 +26,10 @@ const countryByName = async (name) => {
         }},
         include: {
             model: Activity,
-            attributes: ['name', 'season', 'difficulty', 'season']
+            attributes: ['name', 'season', 'difficulty', 'season'],
+            through:{
+                attributes: []
+            }
         }
     });
     
