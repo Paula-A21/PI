@@ -1,24 +1,15 @@
-const { Country } = require('../db');
+const { Country, Activity } = require('../db');
 const { Op } = require('sequelize');
 
-const allCountries = async () => {
-    const countries = await Country.findAll();
-
-    if(!countries) throw Error ('The countries are not found in the database');
-
-    return countries;
-};
 
 const countryById = async (id) => {
     const countryById = await Country.findOne({
-        where: { id }
-    }/*, CREAR ACTIVIDADES ANTES DE DESCOMENTAR
-    {
+        where: { id },
         include: {
             model: Activity,
-            attributes: ['name', 'season', 'difficulty'],
-        },
-    }*/);
+            attributes: ['name', 'season', 'difficulty', 'season']
+        }
+    });
 
     if(!countryById) throw Error ('There is no country with that ID');
 
@@ -29,7 +20,11 @@ const countryByName = async (name) => {
     const country = await Country.findAll({
         where: { name: {
             [Op.iLike]: `${name}%`,
-        }}
+        }},
+        include: {
+            model: Activity,
+            attributes: ['name', 'season', 'difficulty', 'season']
+        }
     });
     
     if(!country) throw Error('The country with that name does not exist');
@@ -38,7 +33,6 @@ const countryByName = async (name) => {
 };
 
 module.exports = {
-    allCountries,
     countryById,
     countryByName,
 };

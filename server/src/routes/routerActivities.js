@@ -1,10 +1,10 @@
-const { getActivity } = require("../controllers/activities");
+const { getActivities } = require("../handlers/getActivities");
 const { createActivities } = require("../handlers/postActivities");
-const routerPostActivity = require('express').Router();
+const routerActivities = require('express').Router();
 
-routerPostActivity.post('/', createActivities);
-routerPostActivity.get('/', getActivity);
+routerActivities.post('/', createActivities);
+routerActivities.get('/', getActivities);
 
 module.exports = {
-    routerPostActivity
+    routerActivities
 }

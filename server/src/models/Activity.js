@@ -10,10 +10,11 @@ module.exports = (sequelize) => {
         },
         name:{
             type: DataTypes.STRING,
+            unique: true,
             allowNull: false
         },
         difficulty:{
-            type: DataTypes.INTEGER,
+            type: DataTypes.DECIMAL,
             validate:{
               "max": 5, 
               "min": 0
@@ -23,17 +24,20 @@ module.exports = (sequelize) => {
         duration:{
             //postgres quizás no acepta TIME, así que debería probar usar DATE y sacar solo la hora
             //type: DataTypes.DATE
-            type: DataTypes.TIME,
+            type: DataTypes.INTEGER,
+            validate:{
+                "max":24,
+                "min":1
+            },
             allowNull: true
-            // type: DataTypes.INTEGER,
-            // validate:{
-            //     "max":24,
-            //     "min":1
-            // }
         },
         season:{
             type: DataTypes.ENUM("Summer", "Fall", "Winter", "Autumn"),
             allowNull:false
-        }
+        },
+        
+    },
+    {
+        timestamps:false
     })
 }

@@ -1,14 +1,20 @@
 const {Activity} = require("../db.js");
 
-const createActivity = async (name, difficulty, duration, season) => {
-    if(name){
-        const newActivity = await Activity.create({
+const createActivity = async ({name, difficulty, duration, season, countries}) => {
+    if(name && difficulty && season){
+        const activity = {
             name, 
             difficulty, 
-            ...(duration && { duration }), // si duration no existe la propiedad no se agrega al objeto
-             //?.slice(0,6), //le hago un slice para que en el time no se me guarden los segundos debería hacer en el front este slice?
+            duration: duration ? duration : null, // si duration no existe se envia
             season 
-        });
+        };
+
+        const newActivity = await Activity.create(activity)
+
+        console.log(countries);
+
+        newActivity.addCountries(countries);
+
         return newActivity;
     }
     else throw new Error ("Cannot create a new activity. Some fields are missing.");

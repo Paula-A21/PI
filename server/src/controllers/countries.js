@@ -5,13 +5,13 @@
   const getCountries = async () => {
     try {
       const { data } = await axios.get(`${URL}/countries`);
-      return Promise.all(
+      const createCountry = Promise.all(
         data.map((country) => {
           // Mapeo cada data que llega en el response del axios.get
 
-          if(!country.capital) country.capital = ['Unknown'] //si no existe la capital se guarda un valor unknown por defecto
+          if(!country.capital) country.capital = ['Unknown']; //si no existe la capital se guarda un valor unknown por defecto
 
-          return Country.create({
+          const newCountry = Country.create({
             id: country.cca3,
             name: country.name.common,
             flags: country.flags.png,
@@ -21,10 +21,13 @@
             area: country?.area,
             population: country.population,
           });
+          return newCountry;
         })
       );
+
+      return createCountry;
     } catch (error) {
-      throw new Error("There was an error creating countries");
+      throw new Error('The countries are not found in the database');
     }
   };
 
