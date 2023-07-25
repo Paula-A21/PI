@@ -6,7 +6,7 @@ const routerActivities = require('express').Router();
 
 routerActivities.post('/', createActivities);
 routerActivities.get('/', getActivities);
-routerActivities.get('/filter_activity', handlerActivifyFilter);
+routerActivities.get('/activity_filt', handlerActivifyFilter);
 
 module.exports = {
     routerActivities
