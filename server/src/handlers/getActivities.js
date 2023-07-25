@@ -1,4 +1,4 @@
-const { getAllActivities } = require("../controllers/getAllActivities")
+const { getAllActivities } = require("../controllers/getAllActivities");
 
 
 const getActivities = async (req, res) => {

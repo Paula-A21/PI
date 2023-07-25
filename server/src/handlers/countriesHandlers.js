@@ -1,5 +1,5 @@
 const { getCountries } = require('../controllers/countries');
-const {  countryById, countryByName } = require('../controllers/countriesController');
+const {  countryById, countryByName } = require('../controllers/countriesName&Id');
 
 
 const getAllCountries = async (req, res) => {
