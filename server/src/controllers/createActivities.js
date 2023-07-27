@@ -11,8 +11,6 @@ const createActivity = async ({name, difficulty, duration, season, countries}) =
 
         const newActivity = await Activity.create(activity)
 
-        console.log(countries);
-
         newActivity.addCountries(countries);
 
         return newActivity;

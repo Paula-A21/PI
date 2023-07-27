@@ -8,5 +8,5 @@ conn.sync({ force: true }).then(async () => {
   await fetchCountries();
   server.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`);
-})
+}) 
 }).catch(error => console.error(error))

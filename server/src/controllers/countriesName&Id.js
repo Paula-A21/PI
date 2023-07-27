@@ -7,7 +7,7 @@ const countryById = async (id) => {
         where: { id },
         include: {
             model: Activity,
-            attributes: ['name', 'season', 'difficulty', 'season'],
+            attributes: ['name', 'duration', 'difficulty', 'season'],
             through:{
                 attributes: []
             }
@@ -22,11 +22,11 @@ const countryById = async (id) => {
 const countryByName = async (name) => {
     const country = await Country.findAll({
         where: { name: {
-            [Op.iLike]: `${name}%`,
+            [Op.iLike]: `%${name}%`,
         }},
         include: {
             model: Activity,
-            attributes: ['name', 'season', 'difficulty', 'season'],
+            attributes: ['name'],
             through:{
                 attributes: []
             }
