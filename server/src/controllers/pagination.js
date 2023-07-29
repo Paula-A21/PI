@@ -2,6 +2,7 @@
 
 const pagination = async (pageData, countries) => {
 
+    if(!countries) throw Error("There are no countries")
     
     const itemsPerPage = 10;
     const totalPages = countries.length;

@@ -15,7 +15,8 @@ const createActivity = async ({name, difficulty, duration, season, countries}) =
 
         return newActivity;
     }
-    else throw new Error ("Cannot create a new activity. Some fields are missing.");
+    else if(!name || !difficulty || !season) throw new Error ("Cannot create a new activity. Some fields are missing.");
+    else throw new Error ("Cannot create a new activity.");
 }
 
 module.exports = {

@@ -5,6 +5,10 @@ const {URL} = require('./URL')
 const fetchCountries = async () => {
     try {
         const { data } = await axios.get(`${URL}/countries`);
+        if(await Country.count() > 0){
+          return;
+        }
+
         const createCountry = Promise.all(
           data.map((country) => {
             // Mapeo cada data que llega en el response del axios.get
