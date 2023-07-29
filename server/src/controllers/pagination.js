@@ -1,9 +1,8 @@
-
-
 const pagination = async (pageData, countries) => {
 
-    if(!countries) throw Error("There are no countries")
-    
+    if(!countries) throw Error("There are no countries");
+    //no creo un error si no recibo pageData porqye lo manejo abajo
+
     const itemsPerPage = 10;
     const totalPages = countries.length;
     const numberPages = Math.ceil(totalPages / itemsPerPage); //lo redondeo hacia arriba porque así me aseguro de que siempre haya páginas a pesar de que no haya datos suficientes para llenar toda la página

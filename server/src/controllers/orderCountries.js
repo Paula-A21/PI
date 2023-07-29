@@ -1,7 +1,4 @@
-const { or } = require("sequelize");
-const { Country } = require("../db");
-
-const setOrder = async (order, countries) => {
+const orderCountries = async (order, countries) => {
 
   if (!order) throw new Error("Order not set");
 
@@ -26,5 +23,5 @@ const setOrder = async (order, countries) => {
 };
 
 module.exports = {
-  setOrder,
+  orderCountries
 };
