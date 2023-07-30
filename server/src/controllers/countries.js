@@ -27,7 +27,7 @@ const { Country } =  require('../db.js');
   // //             id: country.cca3,
   // //             name: country.name.official,
   // //             flags: country.flags.png,
-  // //             continents: country.continents,
+  // //             continent: country.continent,
   // //             capital: country.capital,
   // //             subregion: country?.subregion,
   // //             area: country?.area,

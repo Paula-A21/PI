@@ -19,7 +19,7 @@ const fetchCountries = async () => {
               id: country.cca3,
               name: country.name.common,
               flags: country.flags.png,
-              continents: country.continents[0], //saco el primer valor de los arrays
+              continent: country.continent[0], //saco el primer valor de los arrays
               capital: country.capital[0], 
               subregion: country?.subregion,
               area: country?.area,

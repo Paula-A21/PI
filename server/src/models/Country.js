@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING, //tipo de imagen?
       allowNull:false
     },
-    continents: {
+    continent: {
       type: DataTypes.STRING,
       allowNull: false,
     },
