@@ -1,7 +1,15 @@
-const { Country } =  require('../db.js');
+const { Country, Activity } = require('../db');
+// const { Op } = require('sequelize');
 
   const getCountries = async () => {
-    const countries = await Country.findAll();
+    const countries = await Country.findAll({
+      include: {
+          model: Activity,
+          through: {
+              attributes: [],
+          }
+      }
+    });
 
     if(!countries) throw Error ('The countries are not found in the database');
 
